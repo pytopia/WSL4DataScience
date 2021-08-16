@@ -135,6 +135,7 @@ rm -r -f /mnt/c/myfonts
 /bin/echo -e "\e[1;33m   !---------------------------------------------!\e[0m"
 /bin/echo -e "\e[1;33m   !      Installing Oh My ZSH ...Proceeding     !\e[0m"
 /bin/echo -e "\e[1;33m   !---------------------------------------------!\e[0m"
+apt install build-essential nghttp2 libnghttp2-dev libssl-dev
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 #---------------------------------------------------#
 #                  Finish
