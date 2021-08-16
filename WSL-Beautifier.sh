@@ -128,6 +128,7 @@ sudo cp /mnt/c/myfonts/fonts/install.ps1 /mnt/c/myfonts/install.ps1
 find ./ -mindepth 1 ! -regex '^./DejaVuSansMono\(/.*\)?' -delete
 sudo cp /mnt/c/myfonts/install.ps1 /mnt/c/myfonts/fonts/install.ps1
 sudo /mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe C:/myfonts/fonts/install.ps1
+cd ~
 rm -r -f /mnt/c/myfonts
 #---------------------------------------------------#
 # Section 10  - Oh My ZSH  installation....
@@ -135,7 +136,10 @@ rm -r -f /mnt/c/myfonts
 /bin/echo -e "\e[1;33m   !---------------------------------------------!\e[0m"
 /bin/echo -e "\e[1;33m   !      Installing Oh My ZSH ...Proceeding     !\e[0m"
 /bin/echo -e "\e[1;33m   !---------------------------------------------!\e[0m"
-apt install build-essential nghttp2 libnghttp2-dev libssl-dev
+sudo rm -r -f /home/$SUDO_USER/.zshrc.pre-oh-my-zsh
+sudo rm -r -f /home/$SUDO_USER/.oh-my-zsh
+sudo rm -r -f ~/.zshrc.pre-oh-my-zsh
+sudo rm -r -f ~/.oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 #---------------------------------------------------#
 #                  Finish
