@@ -123,6 +123,10 @@ rm -r -f  /mnt/c/myfonts
 mkdir /mnt/c/myfonts
 cd /mnt/c/myfonts
 git clone https://github.com/powerline/fonts.git
+cd fonts
+sudo cp /mnt/c/myfonts/fonts/install.ps1 /mnt/c/myfonts/install.ps1
+find ./ -mindepth 1 ! -regex '^./DejaVuSansMono\(/.*\)?' -delete
+sudo cp /mnt/c/myfonts/install.ps1 /mnt/c/myfonts/fonts/install.ps1
 sudo /mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe C:/myfonts/fonts/install.ps1
 rm -r -f /mnt/c/myfonts
 #---------------------------------------------------#
