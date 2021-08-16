@@ -135,11 +135,6 @@ rm -r -f /mnt/c/myfonts
 /bin/echo -e "\e[1;33m   !---------------------------------------------!\e[0m"
 /bin/echo -e "\e[1;33m   !      Installing Oh My ZSH ...Proceeding     !\e[0m"
 /bin/echo -e "\e[1;33m   !---------------------------------------------!\e[0m"
-sudo rm -r -f /home/$SUDO_USER/.zshrc.pre-oh-my-zsh
-sudo rm -r -f /home/$SUDO_USER/.oh-my-zsh
-sudo rm -r -f ~/.zshrc.pre-oh-my-zsh
-sudo rm -r -f ~/.oh-my-zsh
-sudo ls -a|grep oh-my-zsh| xargs rm -r -f  
 sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 #---------------------------------------------------#
 #                  Finish
