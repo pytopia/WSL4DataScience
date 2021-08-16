@@ -6,11 +6,13 @@
 #               
 # Date : Aug 2021
 # written by : Siniorone
-# WebSite : https://github.com/siniorone
+# WebSite : https://github.com/siniorone/WSL-Beautifier 
 # Version : 1.0 
 # Disclaimer : Script provided AS IS. Use it at your own risk....
 #              You can use this script and distribute it as long as credits are kept 
 #              in place and unchanged   
+# runnig script :$ sudo bash -c  "$(wget -qO- https://git.io/J0Tr6)"
+# fixing zshrc  :$ sudo bash  ~/.fixzsh.sh  
 ####################################################################################################
 #---------------------------------------------------#
 # Section 1  - Welcome & UPDATE
@@ -23,8 +25,8 @@ echo $SUDO_USER
 /bin/echo -e "\e[1;36m   !     this pakages will be installed after runnig the script     !\e[0m"
 /bin/echo -e "\e[1;36m   !           Powerline,Powerlevel9k,Syntax Highlighting           !\e[0m"
 /bin/echo -e "\e[1;36m   !               Git,Autosuggestions,Oh My ZSH                    !\e[0m"
-/bin/echo -e "\e[1;36m   !           Credits : Written by Siniorone - Aug. 2021           !\e[0m"
-/bin/echo -e "\e[1;36m   !                  https://github.com/siniorone                  !\e[0m"
+/bin/echo -e "\e[1;36m   !          Credits : Written by Siniorone - Aug. 2021            !\e[0m"
+/bin/echo -e "\e[1;36m   !          https://github.com/siniorone/WSL-Beautifier           !\e[0m"
 /bin/echo -e "\e[1;36m   !----------------------------------------------------------------!\e[0m"
 sudo apt update
 sudo apt upgrade
@@ -107,7 +109,7 @@ sudo mv -f  /root/.oh-my-zsh /home/$SUDO_USER/.oh-my-zsh
 /bin/echo -e "\e[1;36m                 [ DejaVu Sans Mono Bold for Powerline ]            !\e[0m"
 /bin/echo -e "\e[1;36m   !                                                                !\e[0m"
 /bin/echo -e "\e[1;36m   !          Credits : Written by Siniorone - Aug. 2021            !\e[0m"
-/bin/echo -e "\e[1;36m   !             https://github.com/siniorone                       !\e[0m"
+/bin/echo -e "\e[1;36m   !          https://github.com/siniorone/WSL-Beautifier           !\e[0m"
 /bin/echo -e "\e[1;36m   !----------------------------------------------------------------!\e[0m"
 EOF
 sudo cp /home/$SUDO_USER/.fixzsh.sh ~/.fixzsh.sh
@@ -136,5 +138,5 @@ sudo rm -r -f ~/.oh-my-zsh
 sudo ls -a|grep oh-my-zsh| xargs rm -r -f  
 sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 #---------------------------------------------------#
-# Section 10  - Finish....
+#                  Finish
 #---------------------------------------------------#
