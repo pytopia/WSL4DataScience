@@ -127,7 +127,9 @@ cd fonts
 sudo cp /mnt/c/myfonts/fonts/install.ps1 /mnt/c/myfonts/install.ps1
 find ./ -mindepth 1 ! -regex '^./DejaVuSansMono\(/.*\)?' -delete
 sudo cp /mnt/c/myfonts/install.ps1 /mnt/c/myfonts/fonts/install.ps1
+sudo /mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 sudo /mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe C:/myfonts/fonts/install.ps1
+sudo /mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe Set-ExecutionPolicy -Scope Process -ExecutionPolicy Default
 cd ~
 rm -r -f /mnt/c/myfonts
 #---------------------------------------------------#
