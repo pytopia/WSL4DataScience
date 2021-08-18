@@ -1,4 +1,4 @@
-#run this script :$ sudo bash -c  "$(wget -qO- https://git.io/J0g6c)"
+#run this script :$ bash -c  "$(wget -qO- https://git.io/J0g6c)"
 win_userprofile="$(cmd.exe /c "<nul set /p=%UserProfile%" 2>/dev/null)"
 win_userprofile_dir="${win_userprofile#*:}"
 win_home=${win_userprofile_dir/\\/\/}
@@ -8,9 +8,10 @@ cd Microsoft.WindowsTerminal*
 cd LocalState
 echo $win_home
 
+
 add_schemes (){
 cat << EOF > ~/.add_schemes.py
-import urllib, json ,ast
+import urllib, json ,ast ,urllib.request
 path = "$pwd"
 #Reading setting.json ---------------------------------------------------------
 myfile = open (path+'/settings.json', "r")
@@ -28,8 +29,8 @@ for sch in myschems_json['schemes']:
 
 #Reading Schemes from github :https://github.com/mbadolato/iTerm2-Color-Schemes
 jsons=[
-"3024 Night",
 "AdventureTime",
+"3024 Night",
 "Argonaut",
 "Belafonte Night",
 "BlueBerryPie",
@@ -73,18 +74,19 @@ schemes=[]
 i = 1
 for j in jsons:
 	i += 1
-	url = "https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/windowsterminal/"+j+".json"
-	try:
-		response = urllib.urlopen(url)
-		deadlink = False
-	except:
-		deadlink = True
-	r = response.read()
-	if deadlink or r[:3] == "404":
+	myurl = "https://raw.githubusercontent.com/mbadolato/iTerm2-Color-Schemes/master/windowsterminal/"+j+".json"
+	myurl = myurl.replace(" ","%20")
+	with urllib.request.urlopen(myurl) as url:
+		data = json.loads(url.read().decode())
+		print(data)
+	r=str(data)
+		
+		
+	if  r[:3] == "404":
 		print('\x1b[0;{};{}m'.format(i%6+31,40) +"--------->  " + j + "Scheme not found !!!"'\x1b[0m')
 	else:
 		print('\x1b[0;{};{}m'.format(i%6+31,40) +"   downloading ....    "+  j + '\x1b[0m')
-		schemes.append(eval(r))
+		schemes.append(data)
 #Creating new setting.json ----------------------------------------------------
 add = 0
 not_add = 0
@@ -116,7 +118,7 @@ print("!           another {} Schemes were added by this code            ".forma
 print("!----------------------------------------------------------------!")
 
 EOF
-/usr/bin/python ~/.add_schemes.py
+python3 ~/.add_schemes.py
 rm -rf ~/.add_schemes.py
 }
 
