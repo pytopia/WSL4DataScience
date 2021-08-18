@@ -78,7 +78,6 @@ for j in jsons:
 	myurl = myurl.replace(" ","%20")
 	with urllib.request.urlopen(myurl) as url:
 		data = json.loads(url.read().decode())
-		print(data)
 	r=str(data)
 		
 		
