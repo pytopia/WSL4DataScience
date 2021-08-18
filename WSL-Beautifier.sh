@@ -70,12 +70,12 @@ apt install git
 /bin/echo -e "\e[1;33m   !---------------------------------------------!\e[0m"
 /bin/echo -e "\e[1;33m   !   Installing Autosuggestions ...Proceeding  !\e[0m"
 /bin/echo -e "\e[1;33m   !---------------------------------------------!\e[0m"
-git clone https://github.com/zsh-users/zsh-autosuggestions /home/$SUDO_USER/.zsh/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 #---------------------------------------------------#
-# Section 8  - zshrc  configuration
+# Section 8  - zshrc  config and conda initialization
 #---------------------------------------------------#
 /bin/echo -e "\e[1;33m   !---------------------------------------------!\e[0m"
-/bin/echo -e "\e[1;33m   !            ZSHRC  configuration             !\e[0m"
+/bin/echo -e "\e[1;33m   !   zshrc  config and conda initialization    !\e[0m"
 /bin/echo -e "\e[1;33m   !---------------------------------------------!\e[0m"
 ver=$(lsb_release -sr)
 cat << EOF > ~/.zshrc
@@ -95,10 +95,10 @@ EOF
 
 
 #---------------------------------------------------#
-# Section 9  - Fonts  installation....
+# Section 9  - Fonts and Color  installation....
 #---------------------------------------------------#
 /bin/echo -e "\e[1;33m   !---------------------------------------------!\e[0m"
-/bin/echo -e "\e[1;33m   !    Fonts  installation ...Proceeding        !\e[0m"
+/bin/echo -e "\e[1;33m   ! Font and Color  installation ...Proceeding  !\e[0m"
 /bin/echo -e "\e[1;33m   !---------------------------------------------!\e[0m"
 rm -r -f  /mnt/c/myfonts
 mkdir /mnt/c/myfonts
@@ -106,12 +106,8 @@ cd /mnt/c/myfonts
 git clone https://github.com/powerline/fonts.git
 cd fonts
 cp /mnt/c/myfonts/fonts/install.ps1 /mnt/c/myfonts/install.ps1
-mkdir /mnt/c/myfonts/Hack
-cp -r /mnt/c/myfonts/fonts/Hack /mnt/c/myfonts/Hack
 find ./ -mindepth 1 ! -regex '^./DejaVuSansMono\(/.*\)?' -delete
 cp /mnt/c/myfonts/install.ps1 /mnt/c/myfonts/fonts/install.ps1
-mkdir /mnt/c/myfonts/fonts/Hack
-cp -r /mnt/c/myfonts/Hack /mnt/c/myfonts/fonts/Hack
 /mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 /mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe C:/myfonts/fonts/install.ps1
 /mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe Set-ExecutionPolicy -Scope Process -ExecutionPolicy Default
@@ -123,29 +119,19 @@ rm -r -f /mnt/c/myfonts
 /bin/echo -e "\e[1;33m   !---------------------------------------------!\e[0m"
 /bin/echo -e "\e[1;33m   !      Installing Oh My ZSH ...Proceeding     !\e[0m"
 /bin/echo -e "\e[1;33m   !---------------------------------------------!\e[0m"
-rm -r -f /home/$SUDO_USER/.oh-my-zsh
-git clone https://github.com/ohmyzsh/ohmyzsh.git /home/$SUDO_USER/.oh-my-zsh
-#---------------------------------------------------#
-# Section 11  - Conda and ZSH initialization ....
-#---------------------------------------------------#
-/bin/echo -e "\e[1;33m   !---------------------------------------------!\e[0m"
-/bin/echo -e "\e[1;33m   ! Conda and ZSH initialization ...Proceeding  !\e[0m"
-/bin/echo -e "\e[1;33m   !---------------------------------------------!\e[0m"
-usermod -s /usr/bin/zsh $SUDO_USER
-source ~/anaconda3/etc/profile.d/conda.sh
-conda init zsh
+sudo rm -r -f ~/.oh-my-zsh
+git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
 #---------------------------------------------------#
 #                  Finish
 #---------------------------------------------------#
-/bin/echo -e "\e[1;33m   !---------------------------------------------!\e[0m"
-/bin/echo -e "\e[1;33m   ! Adding Schemes to setting.json...Proceeding !\e[0m"
-/bin/echo -e "\e[1;33m   !---------------------------------------------!\e[0m"
-bash -c  "$(wget -qO- https://git.io/J0g6c)"
+usermod -s /usr/bin/zsh $SUDO_USER
+source ~/anaconda3/etc/profile.d/conda.sh
+conda init zsh
 /bin/echo -e "\e[1;36m   !----------------------------------------------------------------!\e[0m"
 /bin/echo -e "\e[1;36m   !  Installation Completed...Please test your ZSH configuration   !\e[0m" 
 /bin/echo -e "\e[1;36m   !          now close your terminal and open it again             !\e[0m"
 /bin/echo -e "\e[1;36m   !      and change defult font from Properties>Fonts to the       !\e[0m"
-/bin/echo -e "\e[1;36m   !             [ DejaVu Sans Mono Bold for Powerline ]            !\e[0m"
+/bin/echo -e "\e[1;36m                 [ DejaVu Sans Mono Bold for Powerline ]            !\e[0m"
 /bin/echo -e "\e[1;36m   !                                                                !\e[0m"
 /bin/echo -e "\e[1;36m   !          Credits : Written by Siniorone - Aug. 2021            !\e[0m"
 /bin/echo -e "\e[1;36m   !          https://github.com/siniorone/WSL-Beautifier           !\e[0m"
