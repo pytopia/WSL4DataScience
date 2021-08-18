@@ -107,11 +107,11 @@ git clone https://github.com/powerline/fonts.git
 cd fonts
 cp /mnt/c/myfonts/fonts/install.ps1 /mnt/c/myfonts/install.ps1
 mkdir /mnt/c/myfonts/Hack
-cp /mnt/c/myfonts/fonts/Hack /mnt/c/myfonts/Hack
+cp -r /mnt/c/myfonts/fonts/Hack /mnt/c/myfonts/Hack
 find ./ -mindepth 1 ! -regex '^./DejaVuSansMono\(/.*\)?' -delete
 cp /mnt/c/myfonts/install.ps1 /mnt/c/myfonts/fonts/install.ps1
 mkdir /mnt/c/myfonts/fonts/Hack
-cp /mnt/c/myfonts/Hack /mnt/c/myfonts/fonts/Hack
+cp -r /mnt/c/myfonts/Hack /mnt/c/myfonts/fonts/Hack
 /mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 /mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe C:/myfonts/fonts/install.ps1
 /mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe Set-ExecutionPolicy -Scope Process -ExecutionPolicy Default
@@ -123,7 +123,7 @@ rm -r -f /mnt/c/myfonts
 /bin/echo -e "\e[1;33m   !---------------------------------------------!\e[0m"
 /bin/echo -e "\e[1;33m   !      Installing Oh My ZSH ...Proceeding     !\e[0m"
 /bin/echo -e "\e[1;33m   !---------------------------------------------!\e[0m"
-sudo rm -r -f ~/.oh-my-zsh
+rm -r -f ~/.oh-my-zsh
 git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
 #---------------------------------------------------#
 # Section 11  - Conda and ZSH initialization ....
@@ -140,7 +140,7 @@ conda init zsh
 /bin/echo -e "\e[1;33m   !---------------------------------------------!\e[0m"
 /bin/echo -e "\e[1;33m   ! Adding Schemes to setting.json...Proceeding !\e[0m"
 /bin/echo -e "\e[1;33m   !---------------------------------------------!\e[0m"
-sudo bash -c  "$(wget -qO- https://git.io/J0g6c)"
+bash -c  "$(wget -qO- https://git.io/J0g6c)"
 /bin/echo -e "\e[1;36m   !----------------------------------------------------------------!\e[0m"
 /bin/echo -e "\e[1;36m   !  Installation Completed...Please test your ZSH configuration   !\e[0m" 
 /bin/echo -e "\e[1;36m   !          now close your terminal and open it again             !\e[0m"
