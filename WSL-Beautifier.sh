@@ -70,7 +70,7 @@ apt install git
 /bin/echo -e "\e[1;33m   !---------------------------------------------!\e[0m"
 /bin/echo -e "\e[1;33m   !   Installing Autosuggestions ...Proceeding  !\e[0m"
 /bin/echo -e "\e[1;33m   !---------------------------------------------!\e[0m"
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions /home/$SUDO_USER/.zsh/zsh-autosuggestions
 #---------------------------------------------------#
 # Section 8  - zshrc  configuration
 #---------------------------------------------------#
@@ -123,8 +123,8 @@ rm -r -f /mnt/c/myfonts
 /bin/echo -e "\e[1;33m   !---------------------------------------------!\e[0m"
 /bin/echo -e "\e[1;33m   !      Installing Oh My ZSH ...Proceeding     !\e[0m"
 /bin/echo -e "\e[1;33m   !---------------------------------------------!\e[0m"
-rm -r -f ~/.oh-my-zsh
-git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
+rm -r -f /home/$SUDO_USER/.oh-my-zsh
+git clone https://github.com/ohmyzsh/ohmyzsh.git /home/$SUDO_USER/.oh-my-zsh
 #---------------------------------------------------#
 # Section 11  - Conda and ZSH initialization ....
 #---------------------------------------------------#
