@@ -102,6 +102,9 @@ cat /home/$SUDO_USER/.fixmyzsh > /home/$SUDO_USER/.zshrc
 cat /home/$SUDO_USER/.fixmyzsh > /root/.zshrc
 sudo usermod -s /usr/bin/zsh $SUDO_USER
 sudo mv -f  /root/.oh-my-zsh /home/$SUDO_USER/.oh-my-zsh
+sudo chown $SUDO_USER /home/$SUDO_USER/.zshrc
+sudo chown $SUDO_USER /home/$SUDO_USER/.zsh
+sudo chown $SUDO_USER /home/$SUDO_USER/.oh-my-zsh
 /bin/echo -e "\e[1;36m   !----------------------------------------------------------------!\e[0m"
 /bin/echo -e "\e[1;36m   !  Installation Completed...Please test your ZSH configuration   !\e[0m" 
 /bin/echo -e "\e[1;36m   !          now close your terminal and open it again             !\e[0m"
