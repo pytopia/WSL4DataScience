@@ -3,9 +3,10 @@ win_userprofile="$(cmd.exe /c "<nul set /p=%UserProfile%" 2>/dev/null)"
 win_userprofile_dir="${win_userprofile#*:}"
 win_home=${win_userprofile_dir/\\/\/}
 win_home=${win_home/\\/\/}
+win_home=${win_home/ /\\ }
 cd /mnt/c 
 pwd
-cd '$win_home'
+cd $win_home
 pwd
 cd AppData/Local/Packages
 cd Microsoft.WindowsTerminal*
