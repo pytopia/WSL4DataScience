@@ -30,3 +30,13 @@ Select your favourite scheme and change the font to the:
 <h2 align="center" id="windows-terminal-appearance">
 	<img src="images/windows-terminal-appearance.jpg" alt="windows terminal appearance">
 </h2>
+
+
+
+## Schemes ONLY installation:
+if you installed all the packages before, you can just run this script to add around 40 schemes from iTerm2-Color-Schemes to your **Windows Terminal**:
+```sh
+bash -c  "$(wget -qO- https://git.io/J0g6c)"
+```
+
+
