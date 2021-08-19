@@ -54,6 +54,7 @@ jsons=[
 "HaX0R_R3D",
 "HaX0R_GR33N",
 "HaX0R_BLUE",
+"Jackie Brown",
 "Laser",
 "Mathias",
 "Ocean",
