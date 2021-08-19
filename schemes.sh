@@ -3,7 +3,6 @@ win_userprofile="$(cmd.exe /c "<nul set /p=%UserProfile%" 2>/dev/null)"
 win_userprofile_dir="${win_userprofile#*:}"
 win_home=${win_userprofile_dir/\\/\/}
 win_home=${win_home/\\/\/}
-win_home=${win_home/\/Users/}
 echo $win_home
 cd /mnt/c 
 pwd
