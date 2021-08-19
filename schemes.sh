@@ -6,8 +6,8 @@ win_home=${win_home/\\/\/}
 win_home=${win_home/\/Users/}
 cd /mnt/c 
 pwd
-echo Users'$win_home'
-cd Users'$win_home'
+echo Users$win_home
+cd Users$win_home
 pwd
 cd AppData/Local/Packages
 cd Microsoft.WindowsTerminal*
