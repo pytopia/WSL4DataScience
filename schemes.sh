@@ -3,7 +3,10 @@ win_userprofile="$(cmd.exe /c "<nul set /p=%UserProfile%" 2>/dev/null)"
 win_userprofile_dir="${win_userprofile#*:}"
 win_home=${win_userprofile_dir/\\/\/}
 win_home=${win_home/\\/\/}
-cd /mnt/c/$win_home/AppData/Local/Packages
+win_home=${win_home/ /\\ }
+cd /mnt/c
+cd $win_home
+cd AppData/Local/Packages
 cd Microsoft.WindowsTerminal*
 cd LocalState
 echo $win_home
@@ -26,7 +29,6 @@ present_schemes = set()
 for sch in myschems_json['schemes']:
 	present_schemes.add(sch['name'])
 #print(present_schemes)
-
 #Reading Schemes from github :https://github.com/mbadolato/iTerm2-Color-Schemes
 jsons=[
 "AdventureTime",
@@ -69,7 +71,6 @@ jsons=[
 "Unikitty",
 "Zenburn"
 ]
-
 schemes=[]
 i = 1
 for j in jsons:
@@ -115,7 +116,6 @@ print("!               Schemes Installation Completed                    ")
 print("!             {} Schemes was on your settings and                 ".format(not_add))
 print("!           another {} Schemes were added by this code            ".format(add))
 print("!----------------------------------------------------------------!")
-
 EOF
 python3 ~/.add_schemes.py
 rm -rf ~/.add_schemes.py
