@@ -4,7 +4,9 @@ win_userprofile_dir="${win_userprofile#*:}"
 win_home=${win_userprofile_dir/\\/\/}
 win_home=${win_home/\\/\/}
 cd /mnt/c 
+pwd
 cd '$win_home'
+pwd
 cd AppData/Local/Packages
 cd Microsoft.WindowsTerminal*
 cd LocalState
