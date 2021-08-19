@@ -3,7 +3,7 @@
 # Description : Perform ZSH installation on Ubuntu 18.04,20.4,20.10,21.04 and perform
 #               additional post configuration to improve end user experience
 #               installs Powerline,Powerlevel9k,Syntax Highlighting,Git,Autosuggestions,Oh My ZSH
-#               
+#               and 40 schemes from iTerm2-Color-Schemes.
 # Date : Aug 2021
 # written by : Siniorone
 # WebSite : https://github.com/siniorone/WSL-Beautifier 
@@ -23,7 +23,8 @@ echo $SUDO_USER
 /bin/echo -e "\e[1;36m   !        configuation on zshrc and initialize Anaconda           !\e[0m"
 /bin/echo -e "\e[1;36m   !     this pakages will be installed after runnig the script     !\e[0m"
 /bin/echo -e "\e[1;36m   !           Powerline,Powerlevel9k,Syntax Highlighting           !\e[0m"
-/bin/echo -e "\e[1;36m   !               Git,Autosuggestions,Oh My ZSH                    !\e[0m"
+/bin/echo -e "\e[1;36m   !               Git,Autosuggestions,Oh My ZSH and                !\e[0m"
+/bin/echo -e "\e[1;36m   !              40 schemes from iTerm2-Color-Schemes              !\e[0m"
 /bin/echo -e "\e[1;36m   !          Credits : Written by Siniorone - Aug. 2021            !\e[0m"
 /bin/echo -e "\e[1;36m   !          https://github.com/siniorone/WSL-Beautifier           !\e[0m"
 /bin/echo -e "\e[1;36m   !----------------------------------------------------------------!\e[0m"
