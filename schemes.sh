@@ -4,9 +4,9 @@ win_userprofile_dir="${win_userprofile#*:}"
 win_home=${win_userprofile_dir/\\/\/}
 win_home=${win_home/\\/\/}
 win_home=${win_home/\/Users/}
+echo $win_home
 cd /mnt/c 
 pwd
-echo $win_home
 cd Users$win_home
 pwd
 cd AppData/Local/Packages
