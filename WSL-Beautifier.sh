@@ -136,7 +136,7 @@ git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
 /bin/echo -e "\e[1;33m   ! Conda and ZSH initialization ...Proceeding  !\e[0m"
 /bin/echo -e "\e[1;33m   !---------------------------------------------!\e[0m"
 echo $(whoami)
-usermod -s /usr/bin/zsh $(whoami)
+sudo usermod -s /usr/bin/zsh $(whoami)
 source ~/anaconda3/etc/profile.d/conda.sh
 conda init zsh
 #---------------------------------------------------#
