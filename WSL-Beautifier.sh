@@ -119,7 +119,7 @@ wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Regul
 /mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe C:/myfonts/install.ps1
 /mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe Set-ExecutionPolicy -Scope Process -ExecutionPolicy Default
 cd ~
-rm -r -f /mnt/c/myfonts
+#rm -r -f /mnt/c/myfonts
 #---------------------------------------------------#
 # Section 10  - Oh My ZSH  installation....
 #---------------------------------------------------#
