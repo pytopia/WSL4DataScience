@@ -1,4 +1,4 @@
-# WSL-Beautifier
+# WSL For Data Science 
 this script perform ZSH installation on Ubuntu 18.04,20.4,20.10,21.04 and perform additional post configuration to improve end user experience and installs :
 **Powerline,Powerlevel9k,Syntax Highlighting,Git,Autosuggestions,Oh My ZSH and 40 schemes from iTerm2-Color-Schemes**
 <h2 align="center" id="WSL-Beautifier">
