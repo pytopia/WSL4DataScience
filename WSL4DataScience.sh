@@ -282,7 +282,7 @@ conda_env(){
     if [[ $# -eq 0 ]];then
         read -p "Please Enter Conda Env Name: " env        
     else
-        env="ds38"
+        env=$1
     fi
     echo "$env"
     conda create --name $env \
@@ -303,7 +303,7 @@ full_installation(){
     schemes_installation
     mongodb_installation
     fix_zshrc
-    conda_env 1
+    conda_env "ds38"
 }
 
 main(){
@@ -323,7 +323,7 @@ main(){
         8)  schemes_installation;;
         9)  mongodb_installation;;
         10) fix_zshrc;;
-        11) conda_env 1;;
+        11) conda_env "ds38";;
        esac
     show_footer
 }
