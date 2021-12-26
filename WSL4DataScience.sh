@@ -279,7 +279,7 @@ EOF
 
 conda_env(){
     logger "Create Conda env for DataScience Project"
-    if [[ $1 -eq 0 ]];then
+    if [[ $# -eq 0 ]];then
         env="ds38"
     else
         read -p "Please Enter Conda Env Name: " env
@@ -303,7 +303,7 @@ full_installation(){
     schemes_installation
     mongodb_installation
     fix_zshrc
-    conda_env 0
+    conda_env 1
 }
 
 main(){
