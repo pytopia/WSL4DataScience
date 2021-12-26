@@ -27,7 +27,7 @@ ZSH is a powerful shell that can function as an interactive shell as well as a s
 ### 5.Syntax Highlighting & Autosuggestions Installation:
 It enables highlighting of commands whilst they are typed at a zsh prompt into an interactive terminal. This helps in reviewing commands before running them, particularly in catching syntax errors. As you type commands, you will see a completion offered  after the cursor in a muted gray color. If you press the right-arrow key or End with the cursorat the end of the buffer, it will accept the suggestion,  replacing  the contents of  the command line buffer with the suggestion. If you invoke the forward-word  widget, it willpartially accept the suggestion up to the point that the cursor moves to.
 
-### 6.Oh My ZSH and other recemnded Pkgs Installation:
+### 6.Oh My ZSH and other recommended Pkgs Installation:
 Oh My Zsh is a delightful, open source,community-driven framework for managing your Zsh configuration. It comes bundled with thousands of helpful functions, helpers,  plugins,  themes... . It also installs the Powerlevel9k and Powerline fonts.Powerlevel9k was a tool for building a beautiful and highly functional CLI, customized for you.
 
 ### 7.Font Installation:
