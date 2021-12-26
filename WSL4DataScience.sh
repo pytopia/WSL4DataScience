@@ -323,7 +323,7 @@ main(){
         8)  schemes_installation;;
         9)  mongodb_installation;;
         10) fix_zshrc;;
-        11) conda_env "ds38";;
+        11) conda_env "ds39";;
        esac
     show_footer
 }
