@@ -285,7 +285,6 @@ conda_env(){
     numpy scipy matplotlib seaborn\
     scikit-learn tensorflow keras plotly\
     pytorch pymongo scrapy beautifulsoup4 -y
-    conda activate $env
 }
 
 full_installation(){
