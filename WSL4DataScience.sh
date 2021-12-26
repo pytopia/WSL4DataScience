@@ -10,7 +10,7 @@
 # Disclaimer : Script provided AS IS. Use it at your own risk....
 #              You can use this script and distribute it as long as credits are kept
 #              in place and unchanged
-# runnig script :$ bash -c  "$(wget -qO- https://git.io/J0Tr6)"
+# runnig script :$ bash -c  "$(wget -qO- https://git.io/JycKg)"
 ####################################################################################################
 
 logger(){
