@@ -279,12 +279,12 @@ EOF
 
 conda_env(){
     logger "Create Conda env for DataScience Project"
-    if [[ $1 -eq "none" ]];then
+    if [[ $1 -eq 0 ]];then
         env="ds38"
     else
         read -p "Please Enter Conda Env Name: " env
     fi
-    echo $env
+    echo "$env"
     conda create --name $env \
     python=3.8 jupyterlab pandas\
     numpy scipy matplotlib seaborn\
@@ -303,7 +303,7 @@ full_installation(){
     schemes_installation
     mongodb_installation
     fix_zshrc
-    conda_env "none"
+    conda_env 0
 }
 
 main(){
