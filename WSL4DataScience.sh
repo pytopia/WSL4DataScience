@@ -280,9 +280,9 @@ EOF
 conda_env(){
     logger "Create Conda env for DataScience Project"
     if [[ $# -eq 0 ]];then
-        env="ds38"
+        read -p "Please Enter Conda Env Name: " env        
     else
-        read -p "Please Enter Conda Env Name: " env
+        env="ds38"
     fi
     echo "$env"
     conda create --name $env \
