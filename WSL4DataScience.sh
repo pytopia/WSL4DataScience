@@ -290,6 +290,9 @@ conda_env(){
     numpy scipy matplotlib seaborn\
     scikit-learn tensorflow keras plotly\
     pytorch pymongo scrapy beautifulsoup4 -y
+    cd ~/.jupyter
+    rm -r -f  jupyter_notebook_config.py
+    echo "c.NotebookApp.use_redirect_file = False" >> jupyter_notebook_config.py
 }
 
 full_installation(){
@@ -299,11 +302,11 @@ full_installation(){
     zsh_installation
     syntax_auto_installation
     oh_my_zsh_installation
-    font_installation
     schemes_installation
     mongodb_installation
     fix_zshrc
     conda_env "ds38"
+    font_installation
 }
 
 main(){
