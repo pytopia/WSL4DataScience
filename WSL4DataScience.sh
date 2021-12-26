@@ -161,7 +161,7 @@ anaconda_installation(){
     if [[ "$shm_id" == "fedf9e340039557f7b5e8a8a86affa9d299f5e9820144bd7b92ae9f7ee08ac60" ]];then
         echo "Anaconda Downloaded Correctly"
     fi
-    bash /tmp/anaconda.sh -y
+    bash /tmp/anaconda.sh -b -p $HOME/anaconda3
 }
 
 syntax_auto_installation(){
