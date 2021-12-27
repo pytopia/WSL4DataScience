@@ -246,9 +246,8 @@ mongodb_installation(){
         sudo rm -f /etc/init/mongod
         sudo curl --http1.1 https://raw.githubusercontent.com/mongodb/mongo/master/debian/init.d --output /etc/init.d/mongod
         sudo chmod 755 /etc/init.d/mongod
-        sudo mkdir -p ~/data/db
-        sudo chown -R mongodb:mongodb ~/data/db
-        #mongo --eval 'db.runCommand({ connectionStatus: 1 })'
+        sudo mkdir -p /data/db
+        sudo chown -R mongodb:mongodb /data/db
     fi
     echo 'echo "Mongo Bash Script"
     cd /mnt/c/Program\ Files/MongoDB/Server
