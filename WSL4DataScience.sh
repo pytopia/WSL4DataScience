@@ -316,6 +316,7 @@ full_installation(){
     fix_zshrc
     conda_env "ds38"
     font_installation
+    mongodb_installation
 }
 
 main(){
