@@ -306,7 +306,6 @@ full_installation(){
     syntax_auto_installation
     oh_my_zsh_installation
     schemes_installation
-    mongodb_installation
     fix_zshrc
     conda_env "ds38"
     font_installation
