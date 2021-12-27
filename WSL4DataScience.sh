@@ -248,7 +248,6 @@ mongodb_installation(){
         sudo chmod 755 /etc/init.d/mongod
         sudo mkdir -p ~/data/db
         sudo chown -R mongodb:mongodb ~/data/db
-        sudo service mongod start
         #mongo --eval 'db.runCommand({ connectionStatus: 1 })'
     fi
     echo 'echo "Mongo Bash Script"
@@ -262,6 +261,7 @@ mongodb_installation(){
     echo "host: $MONGO_HOST  port:27017"
     cd' > ~/findmongo
     echo "MongoDB Host: 127.0.0.1   Port: 27017"
+    sudo service mongod start
 }
 
 fix_zshrc(){
