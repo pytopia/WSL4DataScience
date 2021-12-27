@@ -5,7 +5,7 @@
 #               quickly prepare their WSL for their projects.
 # Date : Dec 2021
 # written by : siniorone
-# WebSite : https://github.com/siniorone/WSL4DataScience
+# WebSite : https://github.com/pytopia/WSL4DataScience
 # Version : 1.0
 # Disclaimer : Script provided AS IS. Use it at your own risk....
 #              You can use this script and distribute it as long as credits are kept
