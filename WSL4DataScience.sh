@@ -230,20 +230,27 @@ schemes_installation(){
 
 mongodb_installation(){
     logger "MongoDB Installation"
-    curl -fsSL https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
-    echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
+    sudo rm -rf /etc/apt/sources.list.d/mongo*  
+    sudo apt purge mongo* -y
+    wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -
+    if [[ $(lsb_release -sr) -eq "20.04" ]];then
+        echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list
+    else
+        echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/5.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list
+    fi
     sudo apt update -y
-    sudo apt install mongodb-org -y
+    sudo apt install -y mongodb-org
     set -e
     if grep -qE "(Microsoft|WSL)" /proc/version &> /dev/null ; then
-        sudo apt-get install -y curl
         sudo rm -f /etc/init/mongodb.conf
-        sudo curl --http1.1 https://raw.githubusercontent.com/mongodb/mongo/985e2a0be95709ac064c57f0a9bb385a55937285/debian/init.d --output /etc/init.d/mongod
+        sudo rm -f /etc/init/mongod
+        sudo curl --http1.1 https://raw.githubusercontent.com/mongodb/mongo/master/debian/init.d --output /etc/init.d/mongod
         sudo chmod 755 /etc/init.d/mongod
-        sudo mkdir -p /data/db
-        sudo chown -R mongodb:mongodb /data/db
+        sudo mkdir -p ~/data/db
+        sudo chown -R mongodb:mongodb ~/data/db
+        sudo service mongod start
+        #mongo --eval 'db.runCommand({ connectionStatus: 1 })'
     fi
-    sudo service mongod start
     echo 'echo "Mongo Bash Script"
     cd /mnt/c/Program\ Files/MongoDB/Server
     cd $(ls -d */|head -n 1)
