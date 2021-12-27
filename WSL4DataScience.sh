@@ -160,7 +160,7 @@ anaconda_installation(){
     read -r shm_id rest <<<"$(sha256sum  /tmp/anaconda.sh)"
     if [[ "$shm_id" == "fedf9e340039557f7b5e8a8a86affa9d299f5e9820144bd7b92ae9f7ee08ac60" ]];then
         echo "Anaconda Downloaded Correctly"
-        bash /tmp/anaconda.sh -b -p -u $HOME/anaconda3
+        bash /tmp/anaconda.sh -u -b -p $HOME/anaconda3
     else
         echo "anaconda.sh file is corrupted!!!"
     fi
