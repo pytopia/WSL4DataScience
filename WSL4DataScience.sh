@@ -225,7 +225,7 @@ EOF
 
 schemes_installation(){
     logger "Schemes Installation"
-    bash -c  "$(wget -qO- https://git.io/J0g6c)"
+    bash -c  "$(wget -qO- https://git.io/JyBsk)"
     }
 
 mongodb_installation(){
