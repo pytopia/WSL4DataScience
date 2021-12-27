@@ -10,7 +10,7 @@
 # Disclaimer : Script provided AS IS. Use it at your own risk....
 #              You can use this script and distribute it as long as credits are kept
 #              in place and unchanged
-# runnig script :$ bash -c  "$(wget -qO- https://git.io/JycKg)"
+# runnig script :$ bash -c  "$(wget -qO- https://git.io/JyB33)"
 ####################################################################################################
 
 logger(){
@@ -31,8 +31,8 @@ show_header(){
     /bin/echo -e "\e[1;36m   !  [Remote - WSL] Extention for optimal integration and speed.   !\e[0m"
     /bin/echo -e "\e[1;36m   !  Install the [Windows Terminal] app from the Microsoft Store   !\e[0m"
     /bin/echo -e "\e[1;36m   !                 to make WSL more easy to use.                  !\e[0m"
-    /bin/echo -e "\e[1;36m   !          Credits : Written by siniorone - Dec. 2021            !\e[0m"
-    /bin/echo -e "\e[1;36m   !          https://github.com/siniorone/WSL4DataScience          !\e[0m"
+    /bin/echo -e "\e[1;36m   !                          Dec. 2021                             !\e[0m"
+    /bin/echo -e "\e[1;36m   !          https://github.com/pytopia/WSL4DataScience            !\e[0m"
     /bin/echo -e "\e[1;36m   !----------------------------------------------------------------!\e[0m"
 }
 show_footer(){
