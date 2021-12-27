@@ -1,4 +1,4 @@
-#run this script :$ bash -c  "$(wget -qO- https://git.io/J0g6c)"
+#run this script :$ bash -c  "$(wget -qO- https://git.io/JyBsk)"
 win_userprofile="$(cmd.exe /c "<nul set /p=%UserProfile%" 2>/dev/null)"
 win_userprofile_dir="${win_userprofile#*:}"
 win_home=${win_userprofile_dir/\\/\/}
