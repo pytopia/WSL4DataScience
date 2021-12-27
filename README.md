@@ -6,14 +6,14 @@
 ## A. Running the script :
 
 ```sh
- bash -c  "$(wget -qO- https://git.io/JycKg)"
+ bash -c  "$(wget -qO- https://git.io/JyB33)"
 ```
 <h2 align="center" id="font-properties">
 	<img src="images/WSL4DS.jpg" alt="WSL For Data Science MENU">
 </h2>
 
 ### 1.Update WSL:
-install available upgrades of all packages currently installed on the  system from the sources configured via sources.list file. New packages will be installed if required to satisfy dependencies, but existing packages will never be removed.
+Install available upgrades of all packages currently installed on the  system from the sources configured via sources.list file. New packages will be installed if required to satisfy dependencies, but existing packages will never be removed.
 
 ### 2.Full Installation:
 This part installs all of the script's functionality on WSL.This feature is excellent for quickly establishing. an appropriate environment for data science activities.
