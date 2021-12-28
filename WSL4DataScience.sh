@@ -161,6 +161,8 @@ anaconda_installation(){
     if [[ "$shm_id" == "fedf9e340039557f7b5e8a8a86affa9d299f5e9820144bd7b92ae9f7ee08ac60" ]];then
         echo "Anaconda Downloaded Correctly"
         bash /tmp/anaconda.sh -u -b -p $HOME/anaconda3
+        source ~/anaconda3/etc/profile.d/conda.sh
+        conda init bash
     else
         echo "anaconda.sh file is corrupted!!!"
     fi
