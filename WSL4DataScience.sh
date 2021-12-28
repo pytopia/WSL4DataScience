@@ -162,7 +162,11 @@ anaconda_installation(){
         echo "Anaconda Downloaded Correctly"
         bash /tmp/anaconda.sh -u -b -p $HOME/anaconda3
         source ~/anaconda3/etc/profile.d/conda.sh
-        conda init bash
+        if [ -n "$ZSH_VERSION" ]; then
+           conda init zsh
+        elif [ -n "$BASH_VERSION" ]; then
+           conda init bash
+        fi
     else
         echo "anaconda.sh file is corrupted!!!"
     fi
