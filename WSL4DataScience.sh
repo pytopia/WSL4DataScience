@@ -37,7 +37,7 @@ show_header(){
 }
 show_footer(){
 /bin/echo -e "\e[1;36m   !----------------------------------------------------------------!\e[0m"
-/bin/echo -e "\e[1;36m   !                      Installation Completed.                   !\e[0m"
+/bin/echo -e "\e[1;36m   !           https://github.com/pytopia/WSL4DataScience           !\e[0m"
 /bin/echo -e "\e[1;36m   !----------------------------------------------------------------!\e[0m"
 }
 
