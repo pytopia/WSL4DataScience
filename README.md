@@ -55,6 +55,10 @@ Enter the name of a new environment to be created, and
 the R, R kernel, and Jupiter lab will be installed on
 it at the same time.
 
+<h2 align="center" id="WSL-Beautifier">
+	<img src="images/r_kernel.jpg" alt="WSL Beautifier">
+</h2>
+
 ### 99.Exit:
 You can quit the script by typing the number 99 in the menu.
 	     
