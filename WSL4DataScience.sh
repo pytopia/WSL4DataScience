@@ -321,6 +321,7 @@ r_installation(){
     if which conda >/dev/null; then
         conda --version
         read -p "Please Enter Conda Env Name: " env
+        wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
         if [[ $(lsb_release -rs) == "20.04" ]]; then
             echo "Ubuntu-20.04"
             sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/'
@@ -328,7 +329,6 @@ r_installation(){
             echo "Ubuntu-18.04"
             sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran40/'
         fi
-        wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
         sudo apt update -y
         sudo apt install r-base -y
         sudo apt-get install r-base-dev
