@@ -50,6 +50,11 @@ In this section to provide a complete environment for data science activities a 
              scikit-learn tensorflow keras plotly
              pytorch pymongo scrapy beautifulsoup4
 ```
+### 12.Install R and R kernal for jupyter in conda env:
+Enter the name of a new environment to be created, and
+the R, R kernel, and Jupiter lab will be installed on
+it at the same time.
+
 ### 99.Exit:
 You can quit the script by typing the number 99 in the menu.
 	     

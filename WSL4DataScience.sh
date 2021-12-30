@@ -56,10 +56,11 @@ show_menu(){
     /bin/echo -e "\e[1;49;93m    9   MongoDB Installation \e[0m"
     /bin/echo -e "\e[1;49;93m    10  Fix ~/.zshrc and Conda init \e[0m"
     /bin/echo -e "\e[1;49;93m    11  Create Conda env for DataScience Project \e[0m"
+    /bin/echo -e "\e[1;49;93m    12  Install R and R kernal for jupyter in conda env \e[0m"
     /bin/echo -e "\e[0;49;91m    99  Exit \e[0m"
     /bin/echo -e "$line"
     read -p "Please Enter the Installation Mode: "  input
-    while  [ $input -lt 0 ] || ([ $input -gt 11 ] && [ $input -ne 99 ]);do
+    while  [ $input -lt 0 ] || ([ $input -gt 12 ] && [ $input -ne 99 ]);do
         read -p "Please Enter the Installation Mode: "  input
     done
     return $input
@@ -140,7 +141,11 @@ help_me(){
     /bin/echo -e "             python=3.8 jupyterlab pandas"
     /bin/echo -e "             numpy scipy matplotlib seaborn"
     /bin/echo -e "             scikit-learn tensorflow keras plotly"
-    /bin/echo -e "             pytorch pymongo scrapy beautifulsoup4"
+    /bin/echo -e "             pytorch pymongo scrapy beautifulsoup4\n"
+    /bin/echo -e "\e[1;49;91m    12  Install R and R kernal for jupyter in conda env  \e[0m"
+    /bin/echo -e "             Enter the name of a new environment to be created, and"
+    /bin/echo -e "             the R, R kernel, and Jupiter lab will be installed on"
+    /bin/echo -e "             it at the same time.\n"
     /bin/echo -e "\e[1;49;91m    99  Exit:  \e[0m"
     /bin/echo -e "             You can quit the script by typing the number 99 in the menu.\n\n"
     read -p "Press Any Key to Exit : "
@@ -311,6 +316,30 @@ conda_env(){
     echo "c.NotebookApp.use_redirect_file = False" >> jupyter_notebook_config.py
 }
 
+r_installation(){
+    logger "R installation..."
+    if which conda >/dev/null; then
+        conda --version
+        read -p "Please Enter Conda Env Name: " env
+        if [[ $(lsb_release -rs) == "20.04" ]]; then
+            echo "Ubuntu-20.04"
+            sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/'
+       elif [[ $(lsb_release -rs) == "18.04" ]]; then
+            echo "Ubuntu-18.04"
+            sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran40/'
+        fi
+        wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
+        sudo apt update -y
+        sudo apt install r-base -y
+        sudo apt-get install r-base-dev
+        logger "R Kernal and Jupyter installation..." 
+        conda create --name $env python=3.9 jupyterlab r r-essentials -y
+    else
+        echo "conda does not exist on your system!"
+    fi
+
+}
+
 full_installation(){
     logger "Full Installation"
     update_wsl
@@ -343,6 +372,7 @@ main(){
         9)  mongodb_installation;;
         10) fix_zshrc;;
         11) conda_env;;
+        12) r_installation;;
        esac
     show_footer
 }
