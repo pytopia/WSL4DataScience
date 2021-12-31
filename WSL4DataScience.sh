@@ -175,7 +175,7 @@ anaconda_installation(){
     else
         echo "anaconda.sh file is corrupted!!!"
     fi
-    
+    echo "c.NotebookApp.use_redirect_file = False" > ~/.jupyter/jupyter_notebook_config.py
 }
 
 syntax_auto_installation(){
@@ -313,7 +313,7 @@ conda_env(){
     pytorch pymongo scrapy beautifulsoup4 -y
     cd ~/.jupyter
     rm -r -f  jupyter_notebook_config.py
-    echo "c.NotebookApp.use_redirect_file = False" >> jupyter_notebook_config.py
+    echo "c.NotebookApp.use_redirect_file = False" > ~/.jupyter/jupyter_notebook_config.py
 }
 
 r_installation(){
@@ -337,7 +337,7 @@ r_installation(){
     else
         echo "conda does not exist on your system!"
     fi
-
+    echo "c.NotebookApp.use_redirect_file = False" > ~/.jupyter/jupyter_notebook_config.py
 }
 
 full_installation(){
