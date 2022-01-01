@@ -366,31 +366,26 @@ spark_scala(){
     rm -rf spark
     mv spark-3.2.0-bin-hadoop3.2 spark
     logger "Adding Enviormental Variable..."
-    if [ -n "$ZSH_VERSION" ]; then
-            echo "ZSH"
-            sed -i '/JAVA_HOME/d' ~/.zshrc
-            sed -i '/usr\/local\/scala\/bin/d' ~/.zshrc
-            sed -i '/SPARK_HOME/d' ~/.zshrc
-            sed -i '/SPARK_HOME\/bin/d' ~/.zshrc
-            cat << EOF >> ~/.zshrc
+    sed -i "/JAVA_HOME/d" ~/.zshrc
+    sed -i "/usr\/local\/scala\/bin/d" ~/.zshrc
+    sed -i "/SPARK_HOME/d" ~/.zshrc
+    sed -i "/SPARK_HOME\/bin/d" ~/.zshrc
+    cat << EOF >> ~/.zshrc
 export JAVA_HOME="/usr"
 export PATH="\$PATH:/usr/local/scala/bin"
 export SPARK_HOME="\$HOME/spark"
 export PATH="\$PATH:\$SPARK_HOME/bin"
 EOF
-        elif [ -n "$BASH_VERSION" ]; then
-           echo "Bash"
-            sed -i '/JAVA_HOME/d' ~/.bashrc
-            sed -i '/usr\/local\/scala\/bin/d' ~/.bashrc
-            sed -i '/SPARK_HOME/d' ~/.bashrc
-            sed -i '/SPARK_HOME\/bin/d' ~/.bashrc
-            cat << EOF >> ~/.bashrc
+    sed -i "/JAVA_HOME/d" ~/.bashrc
+    sed -i "/usr\/local\/scala\/bin/d" ~/.bashrc
+    sed -i "/SPARK_HOME/d" ~/.bashrc
+    sed -i "/SPARK_HOME\/bin/d" ~/.bashrc
+    cat << EOF >> ~/.bashrc
 export JAVA_HOME="/usr"
 export PATH="\$PATH:/usr/local/scala/bin"
 export SPARK_HOME="\$HOME/spark"
 export PATH="\$PATH:\$SPARK_HOME/bin"
 EOF
-        fi
     logger "Creating conda env and adding Scala kernel..."
     conda create --name $env python=3.9 jupyterlab -y
     source ~/anaconda3/etc/profile.d/conda.sh
