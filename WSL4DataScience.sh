@@ -360,7 +360,7 @@ spark_scala(){
     logger "SPARK installation..."
     cd /tmp 
     rm spark-3.2.0-bin-hadoop3.2.tgz
-    wget -v "https://www.apache.org/dyn/closer.lua/spark/spark-3.2.0/spark-3.2.0-bin-hadoop3.2.tgz"
+    wget -v "https://dlcdn.apache.org/spark/spark-3.2.0/spark-3.2.0-bin-hadoop3.2.tgz"
     sudo tar -xzvf spark-3.2.0-bin-hadoop3.2.tgz -C ~/
     cd ~
     rm -rf spark
