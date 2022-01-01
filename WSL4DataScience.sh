@@ -57,6 +57,7 @@ show_menu(){
     /bin/echo -e "\e[1;49;93m    10  Fix ~/.zshrc and Conda init \e[0m"
     /bin/echo -e "\e[1;49;93m    11  Create Conda env for DataScience Project \e[0m"
     /bin/echo -e "\e[1;49;93m    12  Install R and R kernal for jupyter in conda env \e[0m"
+    /bin/echo -e "\e[1;49;93m    13  Install Spark and Scala kernal for jupyter in conda env \e[0m"
     /bin/echo -e "\e[0;49;91m    99  Exit \e[0m"
     /bin/echo -e "$line"
     read -p "Please Enter the Installation Mode: "  input
@@ -142,9 +143,13 @@ help_me(){
     /bin/echo -e "             numpy scipy matplotlib seaborn"
     /bin/echo -e "             scikit-learn tensorflow keras plotly"
     /bin/echo -e "             pytorch pymongo scrapy beautifulsoup4\n"
-    /bin/echo -e "\e[1;49;91m    12  Install R and R kernal for jupyter in conda env  \e[0m"
+    /bin/echo -e "\e[1;49;91m    12  Install R and R kernel for jupyter in conda env  \e[0m"
     /bin/echo -e "             Enter the name of a new environment to be created, and"
-    /bin/echo -e "             the R, R kernel, and Jupiter lab will be installed on"
+    /bin/echo -e "             the R, R kernel, and Jupyter lab will be installed on"
+    /bin/echo -e "             it at the same time.\n"
+    /bin/echo -e "\e[1;49;91m    13  Install SPARK and Scala kernel for jupyter in conda env  \e[0m"
+    /bin/echo -e "             Enter the name of a new environment to be created, and"
+    /bin/echo -e "             the SPARK, Scala kernel, and Jupyter lab will be installed on"
     /bin/echo -e "             it at the same time.\n"
     /bin/echo -e "\e[1;49;91m    99  Exit:  \e[0m"
     /bin/echo -e "             You can quit the script by typing the number 99 in the menu.\n\n"
@@ -339,6 +344,9 @@ r_installation(){
     fi
 
 }
+spark_scala(){
+
+}
 
 full_installation(){
     logger "Full Installation"
@@ -373,6 +381,7 @@ main(){
         10) fix_zshrc;;
         11) conda_env;;
         12) r_installation;;
+        13) spark_scala;;
        esac
     show_footer
 }
