@@ -61,7 +61,7 @@ show_menu(){
     /bin/echo -e "\e[0;49;91m    99  Exit \e[0m"
     /bin/echo -e "$line"
     read -p "Please Enter the Installation Mode: "  input
-    while  [ $input -lt 0 ] || ([ $input -gt 12 ] && [ $input -ne 99 ]);do
+    while  [ $input -lt 0 ] || ([ $input -gt 13 ] && [ $input -ne 99 ]);do
         read -p "Please Enter the Installation Mode: "  input
     done
     return $input
@@ -345,6 +345,59 @@ r_installation(){
     echo "c.NotebookApp.use_redirect_file = False" > ~/.jupyter/jupyter_notebook_config.py
 }
 spark_scala(){
+    logger "Spark and Scala installation..."
+    read -p "Please Enter Conda Env Name: " env
+    logger "JAVA 8 installation..."
+    sudo apt install openjdk-8-jre-headless -y
+    logger "Scala Installation..."
+    cd /tmp
+    wget https://github.com/lampepfl/dotty/releases/download/3.1.0/scala3-3.1.0.tar.gz 
+    sudo tar -xf scala3-3.1.0.tar.gz 
+    sudo rm -rf /usr/local/scala 
+    sudo mkdir /usr/local/scala 
+    cd scala3-3.1.0
+    sudo mv * /usr/local/scala 
+    logger "SPARK installation..."
+    cd /tmp 
+    rm spark-3.2.0-bin-hadoop3.2.tgz
+    wget -v "https://www.apache.org/dyn/closer.lua/spark/spark-3.2.0/spark-3.2.0-bin-hadoop3.2.tgz"
+    sudo tar -xzvf spark-3.2.0-bin-hadoop3.2.tgz -C ~/
+    cd ~
+    rm -rf spark
+    mv spark-3.2.0-bin-hadoop3.2 spark
+    logger "Adding Enviormental Variable..."
+    if [ -n "$ZSH_VERSION" ]; then
+            echo "ZSH"
+            sed -i '/JAVA_HOME/d' ~/.zshrc
+            sed -i '/usr\/local\/scala\/bin/d' ~/.zshrc
+            sed -i '/SPARK_HOME/d' ~/.zshrc
+            sed -i '/SPARK_HOME\/bin/d' ~/.zshrc
+            cat << EOF >> ~/.zshrc
+export JAVA_HOME="/usr"
+export PATH="\$PATH:/usr/local/scala/bin"
+export SPARK_HOME="\$HOME/spark"
+export PATH="\$PATH:\$SPARK_HOME/bin"
+EOF
+        elif [ -n "$BASH_VERSION" ]; then
+           echo "Bash"
+            sed -i '/JAVA_HOME/d' ~/.bashrc
+            sed -i '/usr\/local\/scala\/bin/d' ~/.bashrc
+            sed -i '/SPARK_HOME/d' ~/.bashrc
+            sed -i '/SPARK_HOME\/bin/d' ~/.bashrc
+            cat << EOF >> ~/.bashrc
+export JAVA_HOME="/usr"
+export PATH="\$PATH:/usr/local/scala/bin"
+export SPARK_HOME="\$HOME/spark"
+export PATH="\$PATH:\$SPARK_HOME/bin"
+EOF
+        fi
+    logger "Creating conda env and adding Scala kernel..."
+    conda create --name $env python=3.9 jupyterlab -y
+    source ~/anaconda3/etc/profile.d/conda.sh
+    conda activate $env
+    pip install py4j
+    pip install spylon-kernel
+    python -m spylon_kernel install --user
 
 }
 
