@@ -37,7 +37,7 @@ show_header(){
 }
 show_footer(){
 /bin/echo -e "\e[1;36m   !----------------------------------------------------------------!\e[0m"
-/bin/echo -e "\e[1;36m   !                      Installation Completed.                   !\e[0m"
+/bin/echo -e "\e[1;36m   !           https://github.com/pytopia/WSL4DataScience           !\e[0m"
 /bin/echo -e "\e[1;36m   !----------------------------------------------------------------!\e[0m"
 }
 
@@ -180,7 +180,7 @@ anaconda_installation(){
     else
         echo "anaconda.sh file is corrupted!!!"
     fi
-    
+    echo "c.NotebookApp.use_redirect_file = False" > ~/.jupyter/jupyter_notebook_config.py
 }
 
 syntax_auto_installation(){
@@ -318,7 +318,7 @@ conda_env(){
     pytorch pymongo scrapy beautifulsoup4 -y
     cd ~/.jupyter
     rm -r -f  jupyter_notebook_config.py
-    echo "c.NotebookApp.use_redirect_file = False" >> jupyter_notebook_config.py
+    echo "c.NotebookApp.use_redirect_file = False" > ~/.jupyter/jupyter_notebook_config.py
 }
 
 r_installation(){
@@ -326,6 +326,7 @@ r_installation(){
     if which conda >/dev/null; then
         conda --version
         read -p "Please Enter Conda Env Name: " env
+        wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
         if [[ $(lsb_release -rs) == "20.04" ]]; then
             echo "Ubuntu-20.04"
             sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/'
@@ -333,7 +334,6 @@ r_installation(){
             echo "Ubuntu-18.04"
             sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran40/'
         fi
-        wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
         sudo apt update -y
         sudo apt install r-base -y
         sudo apt-get install r-base-dev
@@ -342,7 +342,7 @@ r_installation(){
     else
         echo "conda does not exist on your system!"
     fi
-
+    echo "c.NotebookApp.use_redirect_file = False" > ~/.jupyter/jupyter_notebook_config.py
 }
 spark_scala(){
 
