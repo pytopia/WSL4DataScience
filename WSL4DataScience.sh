@@ -396,7 +396,7 @@ EOF
     source ~/anaconda3/etc/profile.d/conda.sh
     conda activate $env
     pip install py4j
-    pip install spylon-kernel
+    conda install -c conda-forge spylon-kernel -y
     python -m spylon_kernel install --user
 
 }
