@@ -59,6 +59,11 @@ it at the same time.
 	<img src="images/r_kernel.jpg" alt="WSL Beautifier">
 </h2>
 
+### 13  Install SPARK and Scala kernel for jupyter in conda env 
+Enter the name of a new environment to be created, and the SPARK,Scala and Scala kernel, and Jupyter lab will be installed on it at the same time.
+<h2 align="center" id="WSL-Beautifier">
+	<img src="images/spylon_scala.jpg" alt="WSL Beautifier">
+</h2>
 ### 99.Exit:
 You can quit the script by typing the number 99 in the menu.
 	     
