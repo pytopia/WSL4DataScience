@@ -55,15 +55,22 @@ Enter the name of a new environment to be created, and
 the R, R kernel, and Jupiter lab will be installed on
 it at the same time.
 
-<h2 align="center" id="WSL-Beautifier">
-	<img src="images/r_kernel.jpg" alt="WSL Beautifier">
+<h2 align="center" id="r_kernel">
+	<img src="images/r_kernel.jpg" alt="r_kernel">
 </h2>
 
-### 13  Install SPARK and Scala kernel for jupyter in conda env 
+### 13.Install SPARK and Scala kernel for jupyter in conda env 
 Enter the name of a new environment to be created, and the SPARK,Scala and Scala kernel, and Jupyter lab will be installed on it at the same time.
-<h2 align="center" id="WSL-Beautifier">
-	<img src="images/spylon_scala.jpg" alt="WSL Beautifier">
+<h2 align="center" id="spylon_scala">
+	<img src="images/spylon_scala.jpg" alt="spylon_scala">
 </h2>
+
+### 14.Install Julia and Julia kernel for jupyter lab
+This script installs Julia into your system, performs its initial settings, and adds the Julia kernel to your Jupyter lap. This gives you access to the Julia kernel in all anaconda environments. 
+<h2 align="center" id="julia">
+	<img src="images/julia.jpg" alt="julia">
+</h2>
+
 ### 99.Exit:
 You can quit the script by typing the number 99 in the menu.
 	     

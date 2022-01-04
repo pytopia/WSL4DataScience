@@ -56,12 +56,13 @@ show_menu(){
     /bin/echo -e "\e[1;49;93m    9   MongoDB Installation \e[0m"
     /bin/echo -e "\e[1;49;93m    10  Fix ~/.zshrc and Conda init \e[0m"
     /bin/echo -e "\e[1;49;93m    11  Create Conda env for DataScience Project \e[0m"
-    /bin/echo -e "\e[1;49;93m    12  Install R and R kernal for jupyter in conda env \e[0m"
-    /bin/echo -e "\e[1;49;93m    13  Install Spark and Scala kernal for jupyter in conda env \e[0m"
+    /bin/echo -e "\e[1;49;93m    12  Install R and R kernel for jupyter in conda env \e[0m"
+    /bin/echo -e "\e[1;49;93m    13  Install Spark and Scala kernel for jupyter in conda env \e[0m"
+    /bin/echo -e "\e[1;49;93m    14  Install Julia and Julia kernel for jupyter lab \e[0m"
     /bin/echo -e "\e[0;49;91m    99  Exit \e[0m"
     /bin/echo -e "$line"
     read -p "Please Enter the Installation Mode: "  input
-    while  [ $input -lt 0 ] || ([ $input -gt 13 ] && [ $input -ne 99 ]);do
+    while  [ $input -lt 0 ] || ([ $input -gt 14 ] && [ $input -ne 99 ]);do
         read -p "Please Enter the Installation Mode: "  input
     done
     return $input
@@ -151,6 +152,10 @@ help_me(){
     /bin/echo -e "             Enter the name of a new environment to be created, and"
     /bin/echo -e "             the SPARK, Scala kernel, and Jupyter lab will be installed on"
     /bin/echo -e "             it at the same time.\n"
+    /bin/echo -e "\e[1;49;91m    14  This script installs Julia into your system, performs \e[0m"
+    /bin/echo -e "             its initial settings, and adds the Julia kernel to your"
+    /bin/echo -e "             Jupyter lap. This gives you access to the Julia kernel"
+    /bin/echo -e "             in all anaconda environments.\n"
     /bin/echo -e "\e[1;49;91m    99  Exit:  \e[0m"
     /bin/echo -e "             You can quit the script by typing the number 99 in the menu.\n\n"
     read -p "Press Any Key to Exit : "
@@ -393,6 +398,30 @@ EOF
     pip install py4j
     conda install -c conda-forge spylon-kernel -y
     python -m spylon_kernel install --user
+}
+
+julia_installation(){
+    sudo apt update -y
+    cd /tmp
+    wget https://julialang-s3.julialang.org/bin/linux/x64/1.6/julia-1.6.5-linux-x86_64.tar.gz
+    tar zxvf julia-1.6.5-linux-x86_64.tar.gz
+    sudo rm -rf /usr/local/julia
+    sudo mkdir /usr/local/julia
+    cd /tmp/julia-1.6.5/ 
+    sudo mv * /usr/local/julia
+    sed -i "/julia\/bin/d" ~/.zshrc
+    cat << EOF >> ~/.zshrc
+export PATH="$PATH:/usr/local/julia/bin"
+EOF
+    sed -i "/julia\/bin/d" ~/.bashrc
+    cat << EOF >> ~/.bashrc
+export PATH="$PATH:/usr/local/julia/bin"
+EOF
+    export PATH="$PATH:/usr/local/julia/bin"
+    echo '
+    using Pkg
+    Pkg.add("IJulia")
+    ' | /usr/local/julia/bin/julia
 
 }
 
@@ -430,6 +459,7 @@ main(){
         11) conda_env;;
         12) r_installation;;
         13) spark_scala;;
+        14) julia_installation;;
        esac
     show_footer
 }
