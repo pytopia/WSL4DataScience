@@ -59,10 +59,11 @@ show_menu(){
     /bin/echo -e "\e[1;49;93m    12  Install R and R kernel for jupyter in conda env \e[0m"
     /bin/echo -e "\e[1;49;93m    13  Install Spark and Scala kernel for jupyter in conda env \e[0m"
     /bin/echo -e "\e[1;49;93m    14  Install Julia and Julia kernel for jupyter lab \e[0m"
+    /bin/echo -e "\e[1;49;93m    15  Install C ++ kernel for jupyter in conda env \e[0m"
     /bin/echo -e "\e[0;49;91m    99  Exit \e[0m"
     /bin/echo -e "$line"
     read -p "Please Enter the Installation Mode: "  input
-    while  [ $input -lt 0 ] || ([ $input -gt 14 ] && [ $input -ne 99 ]);do
+    while  [ $input -lt 0 ] || ([ $input -gt 15 ] && [ $input -ne 99 ]);do
         read -p "Please Enter the Installation Mode: "  input
     done
     return $input
@@ -154,8 +155,10 @@ help_me(){
     /bin/echo -e "             it at the same time.\n"
     /bin/echo -e "\e[1;49;91m    14  This script installs Julia into your system, performs \e[0m"
     /bin/echo -e "             its initial settings, and adds the Julia kernel to your"
-    /bin/echo -e "             Jupyter lap. This gives you access to the Julia kernel"
+    /bin/echo -e "             Jupyter lab. This gives you access to the Julia kernel"
     /bin/echo -e "             in all anaconda environments.\n"
+    /bin/echo -e "\e[1;49;91m    15  This script installs C++ kernel into your \e[0m"
+    /bin/echo -e "             jupyter lab in new conda env.\n"
     /bin/echo -e "\e[1;49;91m    99  Exit:  \e[0m"
     /bin/echo -e "             You can quit the script by typing the number 99 in the menu.\n\n"
     read -p "Press Any Key to Exit : "
@@ -425,6 +428,22 @@ EOF
 
 }
 
+c_installation(){
+    logger "C++ Kernel installation..."
+    if which conda >/dev/null; then
+        conda --version
+        read -p "Please Enter Conda Env Name: " env
+        conda create --name $env python=3.9 jupyterlab -y
+        source ~/anaconda3/etc/profile.d/conda.sh
+        conda activate $env
+        conda install xeus -c conda-forge -y
+        conda install xeus-cling==0.9.0 -c conda-forge -y
+    else
+        echo "conda does not exist on your system!"
+    fi
+
+}
+
 full_installation(){
     logger "Full Installation"
     update_wsl
@@ -460,6 +479,7 @@ main(){
         12) r_installation;;
         13) spark_scala;;
         14) julia_installation;;
+        15) c_installation;;
        esac
     show_footer
 }
