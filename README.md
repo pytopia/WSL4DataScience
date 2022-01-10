@@ -71,6 +71,12 @@ This script installs Julia into your system, performs its initial settings, and 
 	<img src="images/julia.jpg" alt="julia">
 </h2>
 
+### 15.Install C ++ kernel for jupyter in conda env
+This script installs C++ kernel into your jupyter lab in new conda env.
+<h2 align="center" id="c_plus_plus">
+	<img src="images/c_plus_plus.jpg" alt="c_plus_plus">
+</h2>
+
 ### 99.Exit:
 You can quit the script by typing the number 99 in the menu.
 	     
